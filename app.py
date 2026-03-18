@@ -1,8 +1,10 @@
 """EPP Customer Support Chatbot — powered by Claude Haiku."""
 import os
+import time
 import anthropic
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from collections import defaultdict
 
 app = Flask(__name__, static_folder="static", static_url_path="/static")
 CORS(app, origins=["https://ecopowerparts.com", "https://www.ecopowerparts.com"],
@@ -146,12 +148,57 @@ DISCONTINUED / OUT OF STOCK:
 """
 
 MAX_MESSAGES = 10  # conversation history limit
+MAX_QUESTIONS_PER_IP = 15  # max questions per visitor per hour
+DAILY_COST_LIMIT_CENTS = 10  # max daily AI spend in cents
+
+# Rate limiting by IP
+ip_requests = defaultdict(list)  # ip -> list of timestamps
+
+# Daily cost tracking (rough estimate)
+# Haiku: ~$0.80/1M input tokens, $4/1M output tokens
+# Each chat ≈ ~2000 input tokens + ~150 output tokens ≈ $0.002 per chat
+daily_cost = {"date": "", "cents": 0.0, "count": 0}
+
+
+def check_rate_limit(ip):
+    """Returns True if allowed, False if rate limited."""
+    now = time.time()
+    # Clean old entries (older than 1 hour)
+    ip_requests[ip] = [t for t in ip_requests[ip] if now - t < 3600]
+    if len(ip_requests[ip]) >= MAX_QUESTIONS_PER_IP:
+        return False
+    ip_requests[ip].append(now)
+    return True
+
+
+def check_daily_budget():
+    """Returns True if within budget, False if over."""
+    today = time.strftime("%Y-%m-%d")
+    if daily_cost["date"] != today:
+        daily_cost["date"] = today
+        daily_cost["cents"] = 0.0
+        daily_cost["count"] = 0
+    return daily_cost["cents"] < DAILY_COST_LIMIT_CENTS
+
+
+def track_cost(input_tokens, output_tokens):
+    """Track approximate cost in cents."""
+    # Haiku 4.5: $0.80/1M input, $4.00/1M output
+    cost_cents = (input_tokens * 0.00008) + (output_tokens * 0.0004)
+    daily_cost["cents"] += cost_cents
+    daily_cost["count"] += 1
 
 
 @app.route("/health", methods=["GET"])
 def health():
     has_key = bool(os.environ.get("ANTHROPIC_API_KEY"))
-    return jsonify({"status": "ok", "api_key_set": has_key})
+    return jsonify({
+        "status": "ok",
+        "api_key_set": has_key,
+        "daily_cost_cents": round(daily_cost["cents"], 4),
+        "daily_limit_cents": DAILY_COST_LIMIT_CENTS,
+        "daily_chats": daily_cost["count"],
+    })
 
 
 @app.route("/chat", methods=["POST"])
@@ -163,6 +210,15 @@ def chat():
     user_msg = data["message"].strip()
     if not user_msg or len(user_msg) > 1000:
         return jsonify({"error": "message must be 1-1000 characters"}), 400
+
+    # Rate limit by IP
+    ip = request.headers.get("X-Forwarded-For", request.remote_addr or "unknown").split(",")[0].strip()
+    if not check_rate_limit(ip):
+        return jsonify({"reply": "You've reached the question limit for now. Email us at info@ecopowerparts.com and we'll help you out!"}), 200
+
+    # Daily budget check
+    if not check_daily_budget():
+        return jsonify({"reply": "Our chat assistant is taking a break. Email us at info@ecopowerparts.com and we'll get back to you!"}), 200
 
     # Build conversation history (client sends previous messages)
     history = data.get("history", [])[-MAX_MESSAGES:]
@@ -189,6 +245,7 @@ def chat():
             messages=messages,
         )
         reply = response.content[0].text
+        track_cost(response.usage.input_tokens, response.usage.output_tokens)
         return jsonify({"reply": reply})
     except Exception as e:
         app.logger.error(f"Claude API error: {type(e).__name__}: {e}")
