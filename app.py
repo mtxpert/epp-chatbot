@@ -144,7 +144,8 @@ MAX_MESSAGES = 10  # conversation history limit
 
 @app.route("/health", methods=["GET"])
 def health():
-    return jsonify({"status": "ok"})
+    has_key = bool(os.environ.get("ANTHROPIC_API_KEY"))
+    return jsonify({"status": "ok", "api_key_set": has_key})
 
 
 @app.route("/chat", methods=["POST"])
@@ -168,8 +169,14 @@ def chat():
 
     messages.append({"role": "user", "content": user_msg})
 
+    api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+    if not api_key:
+        app.logger.error("ANTHROPIC_API_KEY not set")
+        return jsonify({"reply": "Chat is temporarily offline. Email us at info@ecopowerparts.com and we'll help you out!"}), 200
+
     try:
-        response = client.messages.create(
+        c = anthropic.Anthropic(api_key=api_key)
+        response = c.messages.create(
             model="claude-haiku-4-5-20251001",
             max_tokens=300,
             system=SYSTEM_PROMPT,
@@ -178,7 +185,7 @@ def chat():
         reply = response.content[0].text
         return jsonify({"reply": reply})
     except Exception as e:
-        app.logger.error(f"Claude API error: {e}")
+        app.logger.error(f"Claude API error: {type(e).__name__}: {e}")
         return jsonify({"reply": "Sorry, I'm having trouble right now. Email us at info@ecopowerparts.com and we'll help you out!"}), 200
 
 
