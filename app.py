@@ -105,10 +105,12 @@ PRODUCT CATALOG:
 12. RAPTOR STEERING WHEEL RETROFIT KIT — $380
     URL: https://ecopowerparts.com/products/epp-raptor-steering-wheel-adapter
     Plug-and-play kit to install 2017+ Raptor steering wheel with working paddle shifters into 2009-2014 F-150
+    *** CRITICAL: Truck MUST have SelectShift automatic transmission. If the customer's truck does NOT have SelectShift, this kit will NOT work. SelectShift is the +/- buttons on the gear shifter for manual shifting. This is NOT optional — it is a hard requirement. ***
     Kit includes: 2 custom circuit boards + steering wheel harness + console shifter harness
     Requires separate OEM Ford parts (steering wheel, clock spring, air bag, switch packs)
-    Works: paddle shifters, all controls, adaptive cruise, SelectShift
+    Works: paddle shifters, all controls, adaptive cruise, SelectShift gear selection
     Does NOT work: heated steering wheel (wiring doesn't exist in 2009-2014)
+    If customer is unsure about SelectShift, tell them to email info@ecopowerparts.com with year and trim to confirm
 
 COMMON QUESTIONS:
 
