@@ -139,6 +139,10 @@ Q: What BOV should I get?
 A: Factory BOV mounts work with your stock blow-off valves. Tial Q and TurboXS are aftermarket BOV upgrades. If you're not sure, factory mounts are the safe choice. Note: the NMD-to-hot-pipe upgrade kit does NOT support aftermarket BOVs.
 
 SHIPPING: All orders ship from the US. Standard shipping. For specific shipping questions, direct to info@ecopowerparts.com.
+
+DISCONTINUED / OUT OF STOCK:
+- Lowering springs (Mach-E, Navigator/Expedition, or any other vehicle): DISCONTINUED. We can no longer get these manufactured. Do NOT suggest emailing for alternatives — simply tell the customer we no longer carry lowering springs and cannot get them made anymore.
+- Any other product not listed above: We ONLY carry the products listed on our website. Do not suggest we might have something we don't. Tell the customer we only sell the products listed at ecopowerparts.com.
 """
 
 MAX_MESSAGES = 10  # conversation history limit
