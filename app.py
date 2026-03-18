@@ -4,8 +4,10 @@ import anthropic
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app, origins=["https://ecopowerparts.com", "https://www.ecopowerparts.com"])
+app = Flask(__name__, static_folder="static", static_url_path="/static")
+CORS(app, origins=["https://ecopowerparts.com", "https://www.ecopowerparts.com"],
+     resources={r"/chat": {"origins": ["https://ecopowerparts.com", "https://www.ecopowerparts.com"]},
+                r"/static/*": {"origins": "*"}})
 
 client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
