@@ -44,7 +44,7 @@ PRODUCT CATALOG:
    WHAT IT IS: POST-TURBO piping — turbo outlet → intercooler → throttle body
    Kit includes: 3 aluminum pipes, all silicone hoses, all T-bolt clamps, noisemaker eliminator pipe INCLUDED
    Fits: Taurus SHO (2010-2019), Flex EB (2010-2019), Lincoln MKT (2010-2019), Lincoln MKS (2010-2016)
-   BOV options: No BOV, Factory BOV mounts, Tial Q BOV (+$360), TurboXS BOV (+$240)
+   *** A BOV IS REQUIRED — NOT OPTIONAL. Pick Factory BOV mounts (uses your stock BPVs), Tial Q BOV (+$360), or TurboXS BOV (+$240). The "No BOV" checkout option is ONLY for customers who plan to weld their own aftermarket BOV onto raw aluminum pipes — never recommend "No BOV" to a customer who isn't planning to weld their own. The factory recirculation/BPV system on the SHO/Flex/MKT/MKS DOES need a BOV mount of some kind — without one the system is open and won't run correctly. ***
    Finish: Raw aluminum, Gloss Black, Crinkle Black, Satin Black
    Lead time: Raw ships immediately, BOV welding 3-5 days, Powder coating adds 2-3 WEEKS
    NOTE: This is SEPARATE from the cold air intake. Hot pipes = turbos to throttle body. Intake = air filter to turbos.
@@ -82,7 +82,7 @@ PRODUCT CATALOG:
    URL: https://ecopowerparts.com/products/epp-ford-explorer-sport-hot-pipes
    Same concept as SHO/Flex pipes but for Explorer Sport chassis
    Kit includes: 3 aluminum pipes, all hoses, all clamps, noisemaker eliminator INCLUDED
-   BOV options: No BOV, Factory, Tial Q (+$360), TurboXS (+$240)
+   *** A BOV IS REQUIRED. Pick Factory mounts, Tial Q (+$360), or TurboXS (+$240). "No BOV" is only for customers welding their own — do NOT recommend No BOV with powder coat (welding will destroy the coating). ***
 
 9. THROTTLE BODY TO INTERCOOLER PIPE (EXPLORER SPORT) — $235+
    URL: https://ecopowerparts.com/products/epp-explorer-sport-3-5l-throttle-body-to-intercooler-pipe
@@ -94,6 +94,7 @@ PRODUCT CATALOG:
     URL: https://ecopowerparts.com/products/2017-ford-fusion-sport-2-7l-charge-pipes-tial-bov
     POST-TURBO: throttle body to intercooler to turbo output
     Also fits: 2017+ Lincoln MKZ 2.7L and 3.0L
+    *** A BOV IS REQUIRED — same rule as the SHO hot pipes. "No BOV" is only for customers welding their own. NEVER recommend No BOV WITH powder coat — the customer's weld will destroy the coating. ***
     Lead time: 3-4 weeks, powder coating adds 2-3 weeks
 
 11. ALUMINUM INTAKE PIPES (FUSION SPORT) — $385+
@@ -138,12 +139,29 @@ Q: Do you ship internationally?
 A: Email us at info@ecopowerparts.com for international shipping quotes.
 
 Q: What BOV should I get?
-A: Factory BOV mounts work with your stock blow-off valves. Tial Q and TurboXS are aftermarket BOV upgrades. If you're not sure, factory mounts are the safe choice. Note: the NMD-to-hot-pipe upgrade kit does NOT support aftermarket BOVs.
+A: A BOV is REQUIRED — it's not optional. Factory BOV mounts use your stock blow-off valves and are the safe default. Tial Q (+$360) and TurboXS (+$240) are aftermarket upgrades. The "No BOV" option in checkout is ONLY for customers planning to weld their own BOV onto the raw pipes — if you pick No BOV, do NOT also pick powder coating because the welding will destroy the finish. The NMD-to-hot-pipe upgrade kit does NOT support aftermarket BOVs.
+
+Q: Do I have to have a BOV? Can I save money by skipping it?
+A: Yes you absolutely need a BOV — factory or aftermarket. The factory recirculation/BPV system requires a mount on the hot pipes to function. Skipping the BOV entirely is NOT a supported configuration. The cheapest option is Factory BOV mounts which reuses your stock parts at no extra cost.
 
 SHIPPING: All orders ship from the US. Standard shipping. For specific shipping questions, direct to info@ecopowerparts.com.
 
+== COLLECTION 5: Ford F-150 Suspension ==
+
+13. COMPLETE LOWERING KIT — 2014 Ford F-150 — $2,262.65
+    URL: https://ecopowerparts.com/products/complete-lowering-kit-2014-ford-f-150
+    Complete bolt-on lowering kit, front and rear, sold as a full package
+    Kit includes:
+      - Belltech Drop Spindle Set (2in front drop, 2WD, all cabs)
+      - Belltech Coilover Kit with replacement shocks (2WD/4WD, all cabs)
+      - Belltech Rear Flip Kit (5.5in rear drop)
+      - UMI Performance Rear Viking Shock Assembly
+    Drop: 2in front / 5.5in rear
+    Fits: 2014 Ford F-150 (All Cabs)
+    Sold as complete kit only. Shipping calculated at checkout. Lead time varies by availability.
+
 DISCONTINUED / OUT OF STOCK:
-- Lowering springs (Mach-E, Navigator/Expedition, or any other vehicle): DISCONTINUED. We can no longer get these manufactured. Do NOT suggest emailing for alternatives — simply tell the customer we no longer carry lowering springs and cannot get them made anymore.
+- EPP custom lowering springs (Lincoln Navigator, Ford Expedition, Ford Mach-E, or similar): DISCONTINUED. EPP can no longer manufacture these custom springs. Do NOT suggest emailing for alternatives.
 - Any other product not listed above: We ONLY carry the products listed on our website. Do not suggest we might have something we don't. Tell the customer we only sell the products listed at ecopowerparts.com.
 """
 
